@@ -1,0 +1,13 @@
+*.log
+*.nav
+*.aux
+*.snm
+*.toc
+*.out
+*.cfg
+*.vrb
+/bin
+/include
+lib64
+/lib
+/man

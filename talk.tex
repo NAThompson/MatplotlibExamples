@@ -1,0 +1,38 @@
+\documentclass{beamer}
+\usepackage{listings}
+
+\begin{document}
+\title{Matplotlib}
+\author{Nick Thompson} 
+\date{\today} 
+
+\frame{\titlepage} 
+
+\frame{\frametitle{Table of contents}\tableofcontents} 
+
+
+\section{Installation} 
+
+\begin{frame}[fragile]
+\frametitle{Ubuntu}
+
+\begin{lstlisting}[language=bash]
+sudo apt-get install tk-dev python3-tk
+pip3 install numpy six tornado pytz pyparsing nose python-dateutil
+pip3 install matplotlib
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Minimal Working Example}
+\begin{lstlisting}[language=Python]
+>>> import matplotlib
+>>> from pylab import *
+>>> plot([1, 2, 3, 2, 1])
+[<matplotlib.lines.Line2D object at 0x7f4bf8ad14a8>]
+>>> show()
+\end{lstlisting}
+\end{frame}
+
+
+\end{document}
