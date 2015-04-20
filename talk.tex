@@ -21,7 +21,7 @@ urlcolor=blue
 \frametitle{Ubuntu}
 
 \begin{lstlisting}[language=bash]
-sudo apt-get install tk-dev python3-tk 
+sudo apt-get install tk-dev python3-tk # For tkinter backend
 sudo apt-get install libblas-dev liblapack-dev # For Scipy
 pip3 install numpy six tornado pytz pyparsing nose python-dateutil
 pip3 install matplotlib
@@ -100,6 +100,26 @@ The backend chooses the rendering engine (vector or raster).
 The most common is the \href{http://agg.sourceforge.net/antigrain.com/index.html}{anti-grain geometry library}.
 
 More backends are described in the Matplotlib \href{http://matplotlib.org/faq/usage_faq.html}{FAQs}.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Super simple example}
+
+\texttt{./super\_simple.py}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Keyboard commands on Default plots}
+
+\begin{itemize}
+
+\item Click ``Pan and zoom''; hold x and y with right or left mouse-buttons
+\item Click ``Zoom to rectangle''; then push left and right arrow keys for back/forwards.
+\item Click ``Configure subplots'' to control spacing.
+
+\end{itemize}
 
 \end{frame}
 
