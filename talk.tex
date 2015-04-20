@@ -1,6 +1,10 @@
 \documentclass{beamer}
 \usepackage{listings}
-
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+urlcolor=blue
+}
 \begin{document}
 \title{Matplotlib}
 \author{Nick Thompson} 
@@ -17,7 +21,8 @@
 \frametitle{Ubuntu}
 
 \begin{lstlisting}[language=bash]
-sudo apt-get install tk-dev python3-tk
+sudo apt-get install tk-dev python3-tk 
+sudo apt-get install libblas-dev liblapack-dev # For Scipy
 pip3 install numpy six tornado pytz pyparsing nose python-dateutil
 pip3 install matplotlib
 \end{lstlisting}
@@ -32,6 +37,70 @@ pip3 install matplotlib
 [<matplotlib.lines.Line2D object at 0x7f4bf8ad14a8>]
 >>> show()
 \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Seriously Annoying; Probably indispensable}
+The call to \texttt{show()} is very often a no-op.
+
+This occurs whenever \texttt{Matplotlib} doesn't have access to system graphics libraries (happens in virtualenvs all the time . . .)
+
+\texttt{show()} is a blocking call; \texttt{Matplotlib} scripts can be run in batch-mode by setting the \emph{backend} to \texttt{agg}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Matplotlib Backend}
+\begin{lstlisting}[language=Python]
+>>> import matplotlib
+>>> matplotlib.get_backend()
+'TkAgg'
+\end{lstlisting}
+The backend is useful for embedding \texttt{Matplotlib} in other applications; unsurprisingly \texttt{TkAgg} is for embedding in \texttt{Tkinter} GUIs.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Setting Matplotlib Backend}
+Direct editing of \texttt{matplotlibrc}:
+\begin{lstlisting}[language=Python]
+>>> import matplotlib
+>>> matplotlib.matplotlib_fname()
+'/home/nthompson/matplotlib_talk/lib/python3.4/site-packages/matplotlib/mpl-data/matplotlibrc'
+\end{lstlisting}
+\begin{lstlisting}[language=bash]
+$ head -40 /home/nthompson/matplotlib_talk/lib/python3.4/site-packages/matplotlib/mpl-data/matplotlibrc
+#### CONFIGURATION BEGINS HERE
+
+# The default backend; one of GTK GTKAgg GTKCairo GTK3Agg GTK3Cairo
+# CocoaAgg MacOSX Qt4Agg Qt5Agg TkAgg WX WXAgg Agg Cairo GDK PS PDF SVG
+# Template.
+# You can also deploy your own backend outside of matplotlib by
+# referring to the module name (which must be in the PYTHONPATH) as
+# 'module://my_backend'.
+backend      : tkagg
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Setting Matplotlib Backend}
+Choose backend at runtime:
+\begin{lstlisting}[language=Python]
+>>> import matplotlib
+>>> matplotlib.use('agg')
+>>> from pylab import *
+>>> plot([1, 2, 3, 2, 1])
+>>> show()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is the Matplotlib backend?}
+The backend chooses the rendering engine (vector or raster).
+
+The most common is the \href{http://agg.sourceforge.net/antigrain.com/index.html}{anti-grain geometry library}.
+
+More backends are described in the Matplotlib \href{http://matplotlib.org/faq/usage_faq.html}{FAQs}.
+
 \end{frame}
 
 
