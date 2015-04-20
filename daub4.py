@@ -86,7 +86,7 @@ if __name__ == "__main__":
     fig = plt.figure(facecolor='black')
     plt.style.use('dark_background')
     #plt.style.use('fivethirtyeight')
-    plt.plot(xAxis, daubechies.phi, 'g--')
+    plt.plot(xAxis, daubechies.phi, 'g--', linewidth=2.0)
     plt.grid(True)
     plt.title("The Daubechies 4 tap scaling function")
     plt.show()
