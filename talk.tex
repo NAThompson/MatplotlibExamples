@@ -124,5 +124,27 @@ More backends are described in the Matplotlib \href{http://matplotlib.org/faq/us
 
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Interactive Matplotlib}
+
+Matplotlib becomes interactive via a call to \texttt{ion()}.
+
+This makes calls to \texttt{show()} non-blocking.
+\begin{lstlisting}[language=Python]
+$ python
+>>> import matplotlib.pyplot as plt
+>>> plt.ion()
+>>> plt.plot([1,2,3,2,1])
+>>> plt.title(``Hello'')
+>>> plt.title(``This is a tent'')
+>>> plt.xlabel(``X axis'')
+>>> plt.ylabel(``Y axis'')
+>>> plt.ioff()
+>>> plt.title(``Goodbye'')
+\end{lstlisting}
+
+
+\end{frame}
+
 
 \end{document}
