@@ -1,24 +1,27 @@
 #!/usr/bin/env python3
 
-import numpy
-import matplotlib
-import matplotlib.pyplot
+import numpy as np
+import matplotlib.pyplot as plt
 import math
 import unittest
 
 def ricker_wavelet(sigma, t):
     return (1-t**2/sigma**2)*math.exp(-t**2/sigma**2)
 
-trace = numpy.zeros(5000)
+trace = np.zeros(5000)
 for ii in range(0, len(trace)):
     trace[ii] = ricker_wavelet(len(trace)/10.0, ii - len(trace)/2.0)
 
-#matplotlib.pyplot.style.use('dark_background')
-matplotlib.pyplot.style.use('fivethirtyeight')
+#plt.style.use('dark_background')
+#plt.style.use('grayscale')
+#plt.style.use('ggplot')
+#plt.style.use('bmh')
 
-fig, ax = matplotlib.pyplot.subplots()
+plt.style.use('fivethirtyeight')
 
-tAxis = numpy.linspace(0, len(trace)*0.001, len(trace))
+fig, ax = plt.subplots()
+
+tAxis = np.linspace(0, len(trace)*0.001, len(trace))
 
 # Add positive fill:
 ax.fill_between(trace, tAxis, where=trace>0)
@@ -27,10 +30,9 @@ ax.fill_between(trace, tAxis, where=trace>0)
 ax.plot(trace, tAxis)
 
 # Make time increase downwards:
-matplotlib.pyplot.gca().invert_yaxis()
+plt.gca().invert_yaxis()
 
-#matplotlib.pyplot.style.use('grayscale')
 
-matplotlib.pyplot.show()
+plt.show()
 
 

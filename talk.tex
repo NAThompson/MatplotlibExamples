@@ -167,9 +167,21 @@ $ ./two_plots.py
 $ ./polar_plot.py
 $ ./daub4.py
 $ ./fibonacci.py
-$ ./wiggle_trace.py
 \end{lstlisting}
 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Available Default Styles}
+
+\begin{lstlisting}[language=bash]
+$ python3 -q
+>>> import matplotlib.pyplot as plt
+>>> plt.style.available
+['fivethirtyeight', 'dark_background', 'ggplot', 'bmh', 'grayscale']
+>>> exit()
+$ ./wiggle_trace.py
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}
