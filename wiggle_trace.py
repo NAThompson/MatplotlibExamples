@@ -36,6 +36,7 @@ fig, ax = matplotlib.pyplot.subplots()
 tAxis = numpy.linspace(0, len(trace)*0.001, len(trace))
 ax.fill_between(trace, tAxis, where=trace>0)
 ax.plot(trace, tAxis)
+matplotlib.pyplot.gca().invert_yaxis()
 matplotlib.pyplot.style.use('grayscale')
 matplotlib.pyplot.show()
 
