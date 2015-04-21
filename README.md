@@ -1,14 +1,8 @@
 To get started:
 
-<code>
+```<bash>
 git clone https://github.com/NAThompson/MatplotlibExamples;
-</code>
-<code>
 pyvenv MatplotlibExamples;
-</code>
-<code>
 cd MatplotlibExamples;
-</code>
-<code>
 pip install -r requirements.txt
-</code>
+```
