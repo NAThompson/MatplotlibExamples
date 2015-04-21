@@ -14,7 +14,7 @@ for ii in range(2, len(fib)):
 golden_ratio  = 1.61803398875
 
 plt.semilogy(x, fib, 'go', label='Fibonacci numbers')
-plt.semilogy(x, (golden_ratio**x)/math.sqrt(5), 'bd', label=r"$\frac{\phi^{n}}{\sqrt{5}}$")
+plt.semilogy(x, (golden_ratio**x)/math.sqrt(5), 'bd', label=r"$\phi^{n}/\sqrt{5}$")
 
 legend = plt.legend(loc='upper left', shadow=True, fontsize='x-large')
 

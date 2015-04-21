@@ -21,13 +21,22 @@ urlcolor=blue
 \frametitle{Ubuntu}
 
 \begin{lstlisting}[language=bash]
-sudo apt-get install tk-dev python3-tk # For tkinter backend
-sudo apt-get install libblas-dev liblapack-dev # For Scipy
-pip3 install numpy six tornado pytz pyparsing nose python-dateutil
-pip3 install matplotlib
+sudo apt-get install tk-dev
+sudo apt-get install python3-tk # For tkinter backend
+sudo apt-get install libblas-dev
+sudo apt-get install liblapack-dev # For SciPy
+pip3 install -r requirements.txt
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Mac}
+\begin{lstlisting}[language=bash]
+pip3 install -r requirements.txt
+\end{lstlisting}
+\end{frame}
+
+\section{Non-interactive Plots and Gotchas}
 \begin{frame}[fragile]
 \frametitle{Minimal Working Example}
 \begin{lstlisting}[language=Python]
@@ -68,7 +77,7 @@ Direct editing of \texttt{matplotlibrc}:
 '/home/nthompson/matplotlib_talk/lib/python3.4/site-packages/matplotlib/mpl-data/matplotlibrc'
 \end{lstlisting}
 \begin{lstlisting}[language=bash]
-$ head -40 /home/nthompson/matplotlib_talk/lib/python3.4/site-packages/matplotlib/mpl-data/matplotlibrc
+$$ head -40 /home/nthompson/matplotlib_talk/lib/python3.4/site-packages/matplotlib/mpl-data/matplotlibrc
 #### CONFIGURATION BEGINS HERE
 
 # The default backend; one of GTK GTKAgg GTKCairo GTK3Agg GTK3Cairo
@@ -124,6 +133,11 @@ More backends are described in the Matplotlib \href{http://matplotlib.org/faq/us
 
 \end{frame}
 
+\begin{frame}
+For awesome examples, check out the \href{http://matplotlib.org/gallery.html}{Matplotlib gallery}.
+\end{frame}
+
+\section{Interactive Matplotlib}
 \begin{frame}[fragile]
 \frametitle{Interactive Matplotlib}
 
@@ -131,7 +145,7 @@ Matplotlib becomes interactive via a call to \texttt{ion()}.
 
 This makes calls to \texttt{show()} non-blocking.
 \begin{lstlisting}[language=Python]
-$ python
+$$ python
 >>> import matplotlib.pyplot as plt
 >>> plt.ion()
 >>> plt.plot([1,2,3,2,1])
@@ -142,9 +156,9 @@ $ python
 >>> plt.ioff()
 >>> plt.title(``Goodbye'')
 \end{lstlisting}
-
-
+On Mac, replace \texttt{python} by \texttt{ipython} or set your backend to \texttt{TkAgg} to avoid a \href{http://stackoverflow.com/questions/25960000/interactive-mode-doesnt-switch-on-from-script-matplotlib-1-4-0-python-2-7-5-on}{known bug}.
 \end{frame}
+
 
 
 \end{document}
