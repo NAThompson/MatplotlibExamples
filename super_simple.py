@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 
-import matplotlib
-import matplotlib.pyplot
-import numpy
-import math
+import matplotlib.pyplot as plt
+import numpy as np
 
-t = numpy.linspace(0.000001, 0.4, 8000)
-A = numpy.sin(1/t)
+t = np.linspace(0.000001, 0.4, 8000)
+A = np.sin(1/t)
 
-matplotlib.pyplot.plot(t, A)
-matplotlib.pyplot.show()
+plt.plot(t, A)
+plt.show()

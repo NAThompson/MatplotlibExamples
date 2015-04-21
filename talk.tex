@@ -5,6 +5,9 @@
 colorlinks=true,
 urlcolor=blue
 }
+
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
+
 \begin{document}
 \title{Matplotlib}
 \author{Nick Thompson} 
@@ -23,6 +26,7 @@ urlcolor=blue
 \begin{lstlisting}[language=bash]
 sudo apt-get install tk-dev
 sudo apt-get install python3-tk # For tkinter backend
+sudo apt-get install python3-pyqt4
 sudo apt-get install libblas-dev
 sudo apt-get install liblapack-dev # For SciPy
 pip3 install -r requirements.txt
@@ -50,11 +54,14 @@ pip3 install -r requirements.txt
 
 \begin{frame}
 \frametitle{Seriously Annoying; Probably indispensable}
-The call to \texttt{show()} is very often a no-op.
+\begin{itemize}
+\item The call to \texttt{show()} is very often a no-op.
 
-This occurs whenever \texttt{Matplotlib} doesn't have access to system graphics libraries (happens in virtualenvs all the time . . .)
+\item This occurs whenever \texttt{Matplotlib} doesn't have access to system graphics libraries (virtualenvs?)
 
-\texttt{show()} is a blocking call; \texttt{Matplotlib} scripts can be run in batch-mode by setting the \emph{backend} to \texttt{agg}
+
+\item \texttt{show()} is a blocking call; \texttt{Matplotlib} scripts can be run in batch-mode by setting the \emph{backend} to \texttt{agg}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -89,6 +96,23 @@ $$ head -40 /home/nthompson/matplotlib_talk/lib/python3.4/site-packages/matplotl
 backend      : tkagg
 \end{lstlisting}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Available Backends}
+\begin{lstlisting}[language=Python]
+$ python3 -q
+>>> import matplotlib
+>>> matplotlib.rcsetup.interactive_bk
+['GTK', 'GTKAgg', 'GTKCairo', 'MacOSX', 'Qt4Agg', 'Qt5Agg', 'TkAgg', 'WX', 'WXAgg', 'CocoaAgg', 'GTK3Cairo', 'GTK3Agg', 'WebAgg', 'nbAgg']
+>>> matplotlib.rcsetup.non_interactive_bk
+['agg', 'cairo', 'emf', 'gdk', 'pdf', 'pgf', 'ps', 'svg', 'template']
+>>> matplotlib.rcsetup.all_backends
+['GTK', 'GTKAgg', 'GTKCairo', 'MacOSX', 'Qt4Agg', 'Qt5Agg', 'TkAgg', 'WX', 'WXAgg', 'CocoaAgg', 'GTK3Cairo', 'GTK3Agg', 'WebAgg', 'nbAgg', 'agg', 'cairo', 'emf', 'gdk', 'pdf', 'pgf', 'ps', 'svg', 'template']
+\end{lstlisting}
+None of these are quaranteed to work!
+
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{Setting Matplotlib Backend}
@@ -129,6 +153,7 @@ More backends are described in the Matplotlib \href{http://matplotlib.org/faq/us
 \item Click ``Configure subplots'' to control spacing.
 \item Ctrl-f for toggling fullscreen
 \item Mouse over axes + g: Toggle grid
+\item (Awesome) k and l log scale the axes!
 \end{itemize}
 
 \end{frame}
